@@ -22,15 +22,18 @@ function buttonClicked(event){
     let nextPlayer = document.getElementById('currentPlayer');
 
     //update the state
-    if (isPlayerXTurn) {
-    ticTacToe[rowIndex][columnIndex]= "X";
-    isPlayerXTurn = false;
-    nextPlayer.innerHTML = "It's player O's turn!"
-    } else { // it is O's turn
-    ticTacToe[rowIndex][columnIndex]= "O"; 
-    isPlayerXTurn = true;
-    nextPlayer.innerHTML = "It's player X's turn!"
+    if (ticTacToe[rowIndex][columnIndex] == "-"){
+        if (isPlayerXTurn) {
+            ticTacToe[rowIndex][columnIndex]= "X";
+            isPlayerXTurn = false;
+            nextPlayer.innerHTML = "It's player O's turn!"
+            } else { // it is O's turn
+            ticTacToe[rowIndex][columnIndex]= "O"; 
+            isPlayerXTurn = true;
+            nextPlayer.innerHTML = "It's player X's turn!"
+            }
     }
+    
 
     //call render function
     renderCell(rowIndex,columnIndex);
